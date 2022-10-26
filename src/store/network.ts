@@ -2,10 +2,10 @@ import { atom } from "nanostores";
 import { addStudent } from "./data";
 import axios from "axios";
 import localforage from "localforage";
-
+const url = "https://api-test-yume.herokuapp.com";
 export function getStudent(id: number) {
   axios
-    .post(`http://127.0.0.1:5001/api/alluser?class=${id}`)
+    .post(`${url}/api/alluser?class=${id}`)
     .then(async (res) => {
       localforage
         .setItem("students", res.data)
@@ -22,7 +22,7 @@ export function getStudent(id: number) {
 }
 export function deleteStudent(id: number) {
   axios
-    .post(`http://127.0.0.1:5001/api/deleteUser?userId=${id}`)
+    .post(`${url}/api/deleteUser?userId=${id}`)
     .then(async (res) => {
       getStudent(res.data.class);
     })
@@ -32,7 +32,7 @@ export function deleteStudent(id: number) {
 }
 export function editStudent(id: number) {
   axios
-    .post(`http://127.0.0.1:5001/api/deleteuser?id=${id}`)
+    .post(`${url}/api/deleteuser?id=${id}`)
     .then(async (res) => {
       getStudent(res.data.class);
     })
@@ -41,7 +41,7 @@ export function editStudent(id: number) {
     });
 }
 export function updateUser(data, classId) {
-  axios.post(`http://127.0.0.1:5001/api/updateUser`, data).then((res) => {
+  axios.post(`${url}/api/updateUser`, data).then((res) => {
     getStudent(classId);
   });
 }
