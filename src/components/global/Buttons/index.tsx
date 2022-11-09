@@ -83,9 +83,9 @@ const Main = styled.div`
 `;
 const NowId = styled.div`
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
-  padding: 5px;
+  padding: 7px 18px;
   font-weight: 900;
-  border-radius: 3px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(3px);
   font-size: 29px;
