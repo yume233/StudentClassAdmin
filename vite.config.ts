@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import {defineConfig} from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
@@ -23,8 +23,15 @@ export default defineConfig({
     },
   },
   server: {
-    port: 10241, //=> Dev 监听端口 | '一般在 3000 绑定失败时设置'
+    port: 1024, //=> Dev 监听端口 | '一般在 3000 绑定失败时设置'
     cors: true,
     open: true,
+    proxy: {
+      "/api": {
+        target: "https://api-test-yume.herokuapp.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
 });

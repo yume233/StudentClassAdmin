@@ -1,4 +1,5 @@
-import { atom } from "nanostores";
+import {atom} from "nanostores";
+
 interface status {
   late: number;
   earlyLeave: number;
@@ -6,6 +7,7 @@ interface status {
   absent: number;
   present: number;
 }
+
 // variable
 export const _student = atom<string[]>([]);
 export const _unitStyleSw = atom<boolean>(false);
@@ -17,15 +19,42 @@ export const _studentStatus = atom<status>({
   present: 0,
 });
 export const _detailsHid = atom({}) as any;
+export const _delHide = atom<boolean>(false);
+export const _editHide = atom<boolean>(false);
+export const _editValue = atom({}) as any;
+export const _postData = atom({}) as any;
+export const _newHide = atom<boolean>(false);
 
 // function
+export function addPostData(key, value) {
+  _postData.set({..._postData.get(), [key]: value});
+}
+
+export function setDelHide() {
+  console.log(_delHide.get());
+  _delHide.set(!_delHide.get());
+}
+
+export function setEditHide() {
+  _editHide.set(!_editHide.get());
+}
+
+export function setNewHide() {
+  _newHide.set(!_newHide.get());
+}
+
+export function addEditValue(key: any, value: any) {
+  _editValue.set({..._editValue.get(), [key]: value});
+}
 
 export function addStudentStatus(value: status) {
   _studentStatus.set(value);
 }
+
 export function setDetailsHid(key, value) {
-  _detailsHid.set({ ..._detailsHid.get(), [key]: value });
+  _detailsHid.set({..._detailsHid.get(), [key]: value});
 }
+
 //处理网络获取的数据
 export function addStudent(value: []) {
   _student.set(value);
@@ -43,17 +72,17 @@ export function addStudent(value: []) {
     const leave = studentStatus.leave;
     const absent = studentStatus.absent;
     const status = item.status;
-    if (status === "迟到") {
+    if (status === 1) {
       _studentStatus.set({
         ...studentStatus,
         late: late + 1,
       });
-    } else if (status === "早退") {
+    } else if (status === 2) {
       _studentStatus.set({
         ...studentStatus,
         earlyLeave: earlyLeave + 1,
       });
-    } else if (status === "请假") {
+    } else if (status === 3) {
       _studentStatus.set({
         ...studentStatus,
         leave: leave + 1,

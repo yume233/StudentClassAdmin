@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import StudentForm from "./components/global/StudentForm";
-import Header from "./components/global/header";
 import Status from "./components/global/Status/status";
 import bg from "assets/img/bg.jpg";
 import Buttons from "./components/global/Buttons";
@@ -43,14 +42,14 @@ const Background = styled.div`
   z-index: -1;
 
   > div {
-    :first-child {
-      position: absolute;
-      background: url(${point}) fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
+    // :first-child {
+    //   position: absolute;
+      //   background: url(${point}) fixed;
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    // }
     :last-child {
       width: 100vw;
       height: 100vh;
