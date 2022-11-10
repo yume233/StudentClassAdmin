@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 // import { getStudent } from "../../../store/network";
 export default (props: any) => {
   const {item, style, elId} = props;
+
   const [state, setState] = useState<number>(0);
   const editHid = useStore(_detailsHid);
   const statusStr = {
@@ -30,18 +31,19 @@ export default (props: any) => {
   };
 
   return (
-    <div>
+      // <div>
       <Main
-        style={style}
-        // onClick={() => {
-        //   setDetails();
-        // }}
+          style={style}
+
+          // onClick={() => {
+          //   setDetails();
+          // }}
       >
         <Img>
           <Avatar
-            alt={item.name}
-            src={item.avatar}
-            sx={{ width: 56, height: 56 }}
+              alt={item.name}
+              src={item.avatar}
+              sx={{width: 56, height: 56}}
           />
         </Img>
         <Info>
@@ -85,19 +87,20 @@ export default (props: any) => {
             删除
           </Button>
         </Edit>
+        {/*  {editHid[elId] ? null : <Menu style={{ height: state }}></Menu>}*/}
+        {/*</div>*/}
       </Main>
-      {editHid[elId] ? null : <Menu style={{ height: state }}></Menu>}
-    </div>
   );
 };
 const Main = styled.div`
   backdrop-filter: blur(6px);
-  box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
+  //box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px;
   background-color: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-radius: 5px;
+  //border-radius: 5px;
+  border-bottom: solid #e5e5e5 1px;
 
   :hover {
     background-color: #ffffff;
@@ -126,7 +129,7 @@ const Info = styled.div`
   width: 150px;
 
   > div {
-    max-width: 120px;
+    max-width: 150px;
     height: 20px;
     margin-bottom: 3px;
   }

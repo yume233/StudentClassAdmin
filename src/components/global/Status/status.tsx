@@ -5,16 +5,15 @@ import {_studentStatus} from "store/data";
 
 export default () => {
     const status = useStore(_studentStatus);
-
     return (
         <Main>
             <div>实到:{status.present}</div>
             <div>缺席:{status.absent}</div>
             <div>请假:{status.leave}</div>
             <div>迟到:{status.late}</div>
-      <div>早退:{status.earlyLeave}</div>
-    </Main>
-  );
+            <div>早退:{status.earlyLeave}</div>
+        </Main>
+    );
 };
 const Main = styled.div`
   background-color: rgba(0, 91, 182, 0.58);

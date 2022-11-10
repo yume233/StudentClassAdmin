@@ -5,7 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import {useStore} from "@nanostores/react";
-import {_editHide, _editValue, addPostData, setEditHide,} from "store/data";
+import {_editHide, _editValue, addPostData, setEditHide} from "store/data";
 import {editStudent} from "../../../../store/network";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
